@@ -1,6 +1,6 @@
 {
     
-    "poolname": "Neoxa Pool",
+    "poolname": "Redecoin Pool",
     
     "devmode": false,
     "devmodePayMinimim": 0.25,
@@ -12,20 +12,20 @@
     "ipv6bits": 16,
     "poolwarningmsg": "",
     
-    "defaultCoin": "neoxamainnet",
+    "defaultCoin": "redecoin",
     
-    "poollogo": "/static/icons/neoxa.png",
+    "poollogo": "/static/icons/redecoin.png",
     
     "discordtwitterfacebook": "",
     
-    "pagetitle": "Neoxa - 0% Fees Promo",
-    "pageauthor": "Neoxa project",
+    "pagetitle": "Redecoin - .8% Fees Promo",
+    "pageauthor": "Redecoin project",
     "pagedesc": "A reliable, 0% fee, easy to use mining pool for cryptocurrency! No matter your experience with mining cryptocurrency, we make it easy! Get started mining today!",
-    "pagekeywds": "GPU,CPU,Hash,Hashrate,Cryptocurrency,Crypto,Mining,Pool,Bitcoin,Neoxa,Wavi,Wavicoin,Dixicoin,Dixi,QBic,QBicCoin,Easy,Simple,How,To",
+    "pagekeywds": "GPU,CPU,Hash,Hashrate,Cryptocurrency,Crypto,Mining,Pool,Bitcoin,Neoxa,Wavi,Wavicoin,Dixicoin,Dixi,QBic,QBicCoin,Easy,Simple,How,To,Redecoin,",
 
-    "btcdonations": "",
-    "ltcdonations": "",
-    "ethdonations": "",
+    "btcdonations": "1BHeq9PSDL2V7526MDVERcBpyH8ecpMfkY",
+    "ltcdonations": "LVWc6MhGHzGYMsiFXMUXhdFbBVVvm72tyY",
+    "rvndonations": "RKZqufGip9q4B5PHpPUMX8X2jYbFKwE3j5",
 
     "logger" : {
         "level" : "debug",
@@ -36,13 +36,13 @@
     "cliPort": 17117,
 
     "clustering": {
-        "enabled": false,
+        "enabled": true,
         "forks": "auto"
     },
 
     "defaultPoolConfigs": {
-        "blockRefreshInterval": 1000,
-        "jobRebroadcastTimeout": 55,
+        "blockRefreshInterval": 333,
+        "jobRebroadcastTimeout": 19,
         "connectionTimeout": 600,
         "emitInvalidBlockHashes": false,
         "validateWorkerUsername": true,
@@ -67,9 +67,9 @@
         "host": "0.0.0.0",
         "port": 8080,
         "sslport": 443,
-        "sslkey": "~/nomp-kawpow-pool/certs/privkey.pem",
-        "sslcert": "~/nomp-kawpow-pool/certs/fullchain.pem",
-        "stratumHost": "65.108.246.133",
+        "sslkey": "~/kawpow-pool/certs/privkey.pem",
+        "sslcert": "~/kawpow-pool/certs/fullchain.pem",
+        "stratumHost": "139.144.35.225",
         "stats": {
             "updateInterval": 30,
             "historicalRetention": 95040,

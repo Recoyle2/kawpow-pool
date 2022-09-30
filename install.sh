@@ -19,10 +19,11 @@ sudo apt install -y apt-transport-https software-properties-common build-essenti
 
 sudo add-apt-repository -y ppa:chris-lea/redis-server
 sudo add-apt-repository -y ppa:bitcoin/bitcoin
+curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 
 sudo apt update
-sudo apt install -y libdb4.8-dev libdb4.8++-dev libssl-dev libboost-all-dev libminiupnpc-dev libtool autotools-dev redis-server
-sudo apt install -y sudo git npm nodejs      
+sudo apt install -y libdb-dev libdb++-dev libssl-dev libboost-all-dev libminiupnpc-dev libtool autotools-dev redis-server
+sudo apt install -y sudo git npm nodejs nginx certbot python3-certbot-nginx redis-server unzip htop     
 
 sudo systemctl enable fail2ban
 sudo systemctl start fail2ban
@@ -33,24 +34,30 @@ sudo systemctl start ntp
 
 sudo rm -rf ~/.nvm
 sudo rm -rf ~/.npm
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+source ~/.profile
 source ~/.bashrc
 sudo chown -R $USER:$GROUP ~/.nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-nvm install v12.13.0
-nvm use v12.13.0
+nvm install v14.20.1
+nvm use v14.20.1
 npm update -g
 
 npm install -g webpack@4.46.0
-npm install -g pm2@4.5.6
+npm install -g npm@8.19.2
+npm install -g pm2@5.2.0
+
+chmod -R +x kawpow-server/
+cd kawpow-server
 
 npm install
 npm update
 npm audit fix
 npm install sha3
 npm install logger
+npm install bignum
 
 echo "Installation completed!"
 

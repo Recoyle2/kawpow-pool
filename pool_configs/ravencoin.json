@@ -2,12 +2,12 @@
     "enabled": false,
     "coin": "ravencoin.json",
 
-    "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk",
+    "address": "RMFhB4JvQhW2uq78kZgBEY2PRyZfcQjtcL",
     
-    "donateaddress": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk",
+    "donateaddress": "RMFhB4JvQhW2uq78kZgBEY2PRyZfcQjtcL",
 
     "rewardRecipients": {
-        "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk": 0.5
+        "RMFhB4JvQhW2uq78kZgBEY2PRyZfcQjtcL": 0.8
     },
 
     "paymentProcessing": {
