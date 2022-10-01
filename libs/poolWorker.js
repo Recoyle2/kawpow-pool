@@ -28,41 +28,41 @@ module.exports = function() {
 			break;
 		}
 	});
-	var onCoinSwitch = function(message) {
-		logger.silly('incoming coinswitch message');
-		let componentStr = `Proxy Switch [:${(parseInt(forkId) + 1)}]`;
-		let logger = loggerFactory.getLogger(componentStr, coin);
-		var switchName = message.switchName;
-		var newCoin = message.coin;
-		var algo = poolConfigs[newCoin].coin.algorithm;
-		var newPool = pools[newCoin];
-		var oldCoin = proxySwitch[switchName].currentPool;
-		var oldPool = pools[oldCoin];
-		var proxyPorts = Object.keys(proxySwitch[switchName].ports);
-		if (newCoin == oldCoin) {
-			logger.debug('Switch message would have no effect - ignoring %s', newCoin);
-			return;
-		}
-		logger.debug('Proxy message for %s from %s to %s', algo, oldCoin, newCoin);
-		if (newPool) {
-			oldPool.relinquishMiners(
-				function(miner, cback) {
-					cback(proxyPorts.indexOf(miner.client.socket.localPort.toString()) !== -1)
-				},
-				function(clients) {
-					newPool.attachMiners(clients);
-				}
-			);
-			proxySwitch[switchName].currentPool = newCoin;
-			redisClient.hset('proxyState', algo, newCoin, function(error, obj) {
-				if (error) {
-					logger.error('Redis error writing proxy config, err = %s', JSON.stringify(err))
-				} else {
-					logger.debug('Last proxy state saved to redis for %s', algo);
-				}
-			});
-		}
-	};
+	//var onCoinSwitch = function(message) {
+		//logger.silly('incoming coinswitch message');
+		//let componentStr = `Proxy Switch [:${(parseInt(forkId) + 1)}]`;
+		//let logger = loggerFactory.getLogger(componentStr, coin);
+		//var switchName = message.switchName;
+		//var newCoin = message.coin;
+		//var algo = poolConfigs[newCoin].coin.algorithm;
+		//var newPool = pools[newCoin];
+		//var oldCoin = proxySwitch[switchName].currentPool;
+		//var oldPool = pools[oldCoin];
+		//var proxyPorts = Object.keys(proxySwitch[switchName].ports);
+		//if (newCoin == oldCoin) {
+			//logger.debug('Switch message would have no effect - ignoring %s', newCoin);
+			//return;
+		//}
+		//logger.debug('Proxy message for %s from %s to %s', algo, oldCoin, newCoin);
+		//if (newPool) {
+			//oldPool.relinquishMiners(
+				//function(miner, cback) {
+					//cback(proxyPorts.indexOf(miner.client.socket.localPort.toString()) !== -1)
+				//},
+				//function(clients) {
+					//newPool.attachMiners(clients);
+				//}
+			//);
+			//proxySwitch[switchName].currentPool = newCoin;
+			//redisClient.hset('proxyState', algo, newCoin, function(error, obj) {
+				//if (error) {
+					//logger.error('Redis error writing proxy config, err = %s', JSON.stringify(err))
+				//} else {
+					//logger.debug('Last proxy state saved to redis for %s', algo);
+				//}
+			//});
+		//}
+//	};
 	var onBanIP = function(message) {
 		logger.silly('incoming banip message');
 		for (var p in pools) {
